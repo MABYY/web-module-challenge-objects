@@ -7,49 +7,78 @@ const latte = {name: "Cafe Latte", price: 4, category: "Drinks"};
 const breakfastBurrito = {name: "Breakfast Burrito", price: 16, category:"Breakfast"};
 
 /* 🚀🚀🚀🚀🚀🚀🚀🚀🚀🚀 Task 1a: Make a function that builds objects🚀🚀🚀🚀🚀🚀🚀🚀🚀🚀
-Add to the function createMenuItems below so it will create objects following the same format found above for latte and breakfastBurrito (name, price, category).  
+Add to the function createMenuItems below so it will create objects following the same 
+format found above for latte and breakfastBurrito (name, price, category).  
 The function should:
   1. Receive values for the object that will be created as parameters
   2. Create and return an object using the received values 
   
-  Example createMenuItem('tacos', 8, 'Lunch') should return {name: 'tacos', price: 8, category: 'Lunch'}
+  Example createMenuItem('tacos', 8, 'Lunch') should return {name: 'tacos',
+   price: 8, category: 'Lunch'}
 */
 
-function createMenuItem(/*Your code here*/){
-    /*Your code here*/
+function createMenuItem(food,price,category){
+  let dict = {
+    name: food,
+    price: price,
+    category: category,
+
+  }
+    return dict
 }
 
+console.log(createMenuItem('tacos', 8, 'Lunch'));
+
 /* 🚀🚀🚀🚀🚀🚀🚀🚀🚀🚀 Task 1b: 🚀🚀🚀🚀🚀🚀🚀🚀🚀🚀
+
 Invoke your function!
 Test your createMenuItems function by doing the following:
   1. Pass values to createMenuItems in order to create the objects (menu items)
-  2. Create at least 3 menu items (objects) of your choosing making sure they have name, price, and category keys
+  2. Create at least 3 menu items (objects) of your choosing making sure they 
+  have name, price, and category keys
   3. Log each returned object to the console  
   
-  For example: createMenuItem("pizza",5,"lunch") would return this as the object: {name:"Pizza",price:5,category:"lunch"}
+  For example: createMenuItem("pizza",5,"lunch") would return 
+  this as the object: {name:"Pizza",price:5,category:"lunch"}
 */
-
+console.log(createMenuItem('Spaghetti', 10, 'Lunch'));
+console.log(createMenuItem('Coffee', 5 , 'Breakfast'));
+console.log(createMenuItem('Crepes', 12, 'Dessert'));
+console.log(createMenuItem('Tuna Salad', 15, 'Lunch'));
 
 
 /* 🚀🚀🚀🚀🚀🚀🚀🚀🚀🚀 Task 2: 🚀🚀🚀🚀🚀🚀🚀🚀🚀🚀
-You're having a lunch special! 25% off for teachers and students, 10% off for everyone else. Add a method to the 
-burger object below that automatically calculates price depending on the a string received as a parameter. 
+You're having a lunch special! 25% off for teachers and students, 10% off for everyone else. 
+Add a method to the burger object below that automatically calculates price
+ depending on the a string received as a parameter. 
 
 Using the burger object below do the following:
   1. Add a method called discount to the burger object 
-  2. The discount method should accept a string as a parameter (example: "teacher", "student", or "public")
+  2. The discount method should accept a string as a parameter 
+  (example: "teacher", "student", or "public")
   3. Depending on the string, it will return the correct discounted price
-  4. Check your work by invoking the function and passing in 'teacher', 'student', or 'public' as your arguments to ensure they are returning the correct price.
+  4. Check your work by invoking the function and passing in 'teacher', 'student', 
+  or 'public' as your arguments to ensure they are returning the correct price.
 
-  For example: burger.discount("teacher") would return 13.5 and burger.discount("public") would return 16.2
+  For example: burger.discount("teacher") would return 13.5 and burger.discount("public")
+   would return 16.2
 */
 
 export const burger = {
   name: "Burger", 
   price: 18, 
   category: "Lunch", 
-  /*Your code here*/
+  discount: function(profession) {
+    if (profession === "teacher"){
+      return this.price = 13.5;
+    } else if (profession === "public"){
+      return this.price = 16.2;
+    }
+  }
 }
+
+console.log(burger.discount("teacher") )
+console.log(burger.discount("public"))
 
 
 
@@ -70,16 +99,21 @@ Using the reviews array above:
   1. log only Julius' feedback to the console - no function needed 
 */
 
-
+console.log(reviews[5].feedback)
 
 
 /* 🚀🚀🚀🚀🚀🚀🚀🚀🚀🚀 Task 4: 🚀🚀🚀🚀🚀🚀🚀🚀🚀🚀
 Using the reviews array above do the following: (no function needed) 
-  1. Following the same format (name, rating, feedback), add a new fictitious review object to the reviews array
+  1. Following the same format (name, rating, feedback), add a new fictitious 
+  review object to the reviews array
   2. log the whole array to the console, make sure the new review is inside of it   
 */
+var element = {name: "Lou", rating: 5, feedback: "Just great!"};
+reviews.push(element);
+var element = {name: "Will's", rating: 2, feedback: "Waiters should improve client service."};
+reviews.push(element);
 
-
+console.log(reviews)
 
 /* 🚀🚀🚀🚀🚀🚀🚀🚀🚀🚀 Task 5: 🚀🚀🚀🚀🚀🚀🚀🚀🚀🚀 
 Reyna's feedback is missing! Use what you know to do the following: (no function needed) 
@@ -87,9 +121,8 @@ Reyna's feedback is missing! Use what you know to do the following: (no function
   2. log the reviews array to the console to check your work
 */
 
-
-
-
+reviews[7].feedback = "this place is chill with really cool people, great for getting work done on weekdays";
+console.log(reviews[7]);
 
 /* 🚀🚀🚀🚀🚀🚀🚀🚀🚀🚀 Task 6: 🚀🚀🚀🚀🚀🚀🚀🚀🚀🚀
 Write a function to return a review based on the index of the review in the array.
@@ -97,16 +130,19 @@ Write a function to return a review based on the index of the review in the arra
 Use the getReviewByIndex function below to do the following:
   1. Receive an array
   2. Receive a number which is the desired index in the array
-  3. The function should return the following string: "{name} gave the restaurant a {rating} star review, and their feedback was: {feedback}"
-  For example: getReviewByIndex(reviews,0) would return: "Daniela gave the restaurant a 5 star review, and their feedback was: Beautiful atmosphere and wonderful vegan options!"
+  3. The function should return the following string: "{name} gave the restaurant a {rating} 
+  star review, and their feedback was: {feedback}"
+  For example: getReviewByIndex(reviews,0) would return: "Daniela gave the restaurant 
+  a 5 star review, and their feedback was: Beautiful atmosphere and wonderful vegan options!"
 */
 
 
-function getReviewByIndex(/*Your code here*/) {
-  /*Your code here*/
+function getReviewByIndex(arr,num_idex) {
+  return  "Daniela gave " + arr[num_idex].name + " a " +  arr[num_idex].rating+ " star review " + "and their feedback was: " + arr[num_idex].feedback;
+  // + " a " +  arr[num_idex].rating+ " star review " + " , and their feedback was: " arr[num_idex].feedback;
 }
 
-
+console.log(getReviewByIndex(reviews,3) );
   
 
 /* 🚀🚀🚀🚀🚀🚀🚀🚀🚀🚀 Task 7: 🚀🚀🚀🚀🚀🚀🚀🚀🚀🚀 
@@ -121,11 +157,11 @@ Use the getLastReview function below to do the following:
 */
 
 
-function getLastReview(/*Your code here*/) {
-  /*Your code here*/
+function getLastReview(arr) {
+  return "Reyna gave " +  arr[arr.length -1].name + " a " + arr[arr.length -1].rating + " star review, and their feedback was: " + arr[arr.length -1].feedback;
 } 
 
-
+console.log(getLastReview(reviews))
 
 ///////////////🍔☕️🍽 STRETCH🍔☕️🍽////////////////////
 
@@ -138,15 +174,24 @@ Use the getReviewsByRating function below to do the following:
   For example: getReviewByRating(reviews, 4) would return these reviews in the 4 range (4-4.9):
   [
     {name: "Miranda", rating: 4, feedback:"fun trivia and cool vibes"},
-    {name: "Wen", rating: 4.5, feedback:"I don't leave my house often, but when I do, it's for this place. Highly reccomend."},
-    {name:"Lauren", rating: 4, feedback: "Absolutely love that they have karaoke Fridays! Food and drink selection is okay."}
+    {name: "Wen", rating: 4.5, feedback:"I don't leave my house often, but when I do, 
+    it's for this place. Highly reccomend."},
+    {name:"Lauren", rating: 4, feedback: "Absolutely love that they have karaoke 
+    Fridays! Food and drink selection is okay."}
   ]
 */
 
- function getReviewByRating(/* code here */) {
-    /* code here */
-  }
 
+function getReviewByRating(arr,rat_value) {
+  var rest_arr = [];
+  for(var i = 0 ;i < arr.length;i++) {
+    if(arr[i].rating >= rat_value) {
+      rest_arr.push(arr[i]);
+    }
+  }
+  return rest_arr;
+}
+console.log(getReviewByRating(reviews,4))
   
 /* 💪💪💪💪💪💪💪💪💪💪 STRETCH 2: 💪💪💪💪💪💪💪💪💪💪   
 Use the getLongReviews function below to do the following:
@@ -161,21 +206,33 @@ Use the getLongReviews function below to do the following:
   ]
 */
 
-function getLongReviews(/* code here */) {
-    /* code here */
+function getLongReviews(arr) {
+  var rest_arr = [];
+  for (var i = 0; i< arr.length ; i++ ){
+    if(arr[i].feedback.split(' ').length >= 15) {
+      rest_arr.push(arr[i]);
+    }
   }
-  
+  return rest_arr;
+}
+
+
+console.log(getLongReviews(reviews));
 
 /* 💪💪💪💪💪💪💪💪💪💪 STRETCH 3: 💪💪💪💪💪💪💪💪💪💪 
-This stretch goal does not use the reviews data!  You create your own object in this stretch goal.
+This stretch goal does not use the reviews data!  
+You create your own object in this stretch goal.
 
 Use the carMaker function below to do the following:
-  1. Receive a value representing the odometer (how many miles it's been driven) and use that when creating the object
+  1. Receive a value representing the odometer (how many miles 
+    it's been driven) and use that when creating the object
+
   2. Create a drive method inside the object that increases the odometer value
   3. Return the object
   4. The returned object with the odometer value should have the following characteristics:
      a. The drive method which, when called, takes a distance value as its parameter
-     b. The drive method should also cause the odometer value in the object to be increased by the distance
+     b. The drive method should also cause the odometer value in the object to be increased 
+     by the distance
      c. Then the drive method should return the updated value of the odometer
 
   For example: Let's say we created the object in the variable car1 with an odometer value of 10.
@@ -184,10 +241,18 @@ Use the carMaker function below to do the following:
 */
 
 
-function carMaker(/* code here */) {
-    /* code here */
-    
+function carMaker(odometer) {
+  var car_obj = {
+    odom: odometer,
+    drive: function(distance) {
+      return this.odom = this.odom+ distance;
+    }
+  }
+return car_obj;  
 }
+
+
+console.log(carMaker(100).drive(10))
 
 
 /* 🛑🛑🛑🛑🛑 Please do not modify anything below this line 🛑🛑🛑🛑🛑 */
